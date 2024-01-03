@@ -1,0 +1,18 @@
+.card-body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .card {
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    margin: 0 auto;
+    margin-top: 50px;
+    max-width: 500px;
+    background: linear-gradient(10deg, rgb(191, 166, 166), white);
+  }
+  
+
+  .ii{
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border: cadetblue solid;
+  }

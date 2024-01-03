@@ -1,0 +1,130 @@
+
+<!--<div class="container mt-5"   style="background-repeat: no-repeat;background-size: contain;" >
+    <img *ngIf="data.backdrop_path" src="https://image.tmdb.org/t/p/w500{{data.backdrop_path}}" alt="none">
+    <div class="row">
+      <div class="col-md-6 offset-md-3"  >
+        <div class="card">
+          <img *ngIf="data.poster_path" src="https://image.tmdb.org/t/p/w500{{ data.poster_path }}" class="card-img-top" alt="data Poster">
+          <div class="card-body" >
+            <h5 class="card-title" *ngIf="data.title">{{ data.title }}</h5>
+            <p class="card-text" *ngIf="data.overview" >{{ data.overview }}</p>
+           
+            <ul class="list-group" >
+              <li class="list-group-item" *ngIf="data.release_date"><strong>Release Date:</strong> {{ data.release_date }}</li>
+              <li class="list-group-item" *ngIf="data.popularity"><strong>Popularity:</strong> {{ data.popularity }}</li>
+              <li class="list-group-item" *ngIf="data.vote_average"><strong>Vote Average:</strong> {{ data.vote_average }}</li>
+              <li class="list-group-item" *ngIf="data.genre"><strong>Genres:</strong> 
+                <ul>
+                  <li *ngFor="let genre of data.genres">{{ genre.name }}</li>
+                </ul>
+              </li>
+              <li class="list-group-item" *ngIf="data.production_companies"><strong>Production Companies:</strong> 
+                <ul>
+                  <li *ngFor="let company of data.production_companies">{{ company.name }}</li>
+                </ul>
+              </li>
+              <li class="list-group-item" *ngIf="data.production_countries"><strong>Production Countries:</strong> 
+                <ul>
+                  <li *ngFor="let country of data.production_countries">{{ country.name }}</li>
+                </ul>
+              </li>
+              <li class="list-group-item" *ngIf="data.spoken_languages"><strong>Spoken Languages:</strong> 
+                <ul>
+                  <li *ngFor="let language of data.spoken_languages">{{ language.name }}</li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    
+  </div>-->
+  <!--<ng-template #noPoster>
+    <p>no data</p>
+  </ng-template>-->
+  <div class="container mt-2 d-flex justify-content-center align-items-center" >
+    <div class="card mb-3 mt-2 " style="max-width: 100%;">
+      <div class="row g-0">
+        <div class="col-md-4 w-50">
+          <img *ngIf="data.poster_path" src="https://image.tmdb.org/t/p/w500{{data.poster_path}}" class="img-fluid rounded-start card-img-top w-100" alt="{{ data.title }} Poster">
+        </div>
+        <div class="col-md-8 w-50">
+          <div class="card-body w-100">
+            <h5 class="card-title" *ngIf="data.title">{{ data.title }}</h5>
+            <p class="card-text w-100" *ngIf="data.overview">{{ data.overview }}</p>
+            <ul class="list-group w-100">
+              <li class="list-group-item w-100" *ngIf="data.release_date"><strong>Release Date:</strong> {{ data.release_date }}</li>
+              <li class="list-group-item w-100" *ngIf="data.popularity"><strong>Popularity:</strong> {{ data.popularity }}</li>
+              <li class="list-group-item w-100" *ngIf="data.vote_average"><strong>Vote Average:</strong> {{ data.vote_average }}</li>
+              <li class="list-group-item w-100" *ngIf="data.genres && data.genres.length"><strong>Genres:</strong>
+                <ul>
+                  <li *ngFor="let genre of data.genres">{{ genre.name }}</li>
+                </ul>
+              </li>
+
+              <li class="list-group-item w-100" ><b>Budget : </b>{{data.budget}} $</li>
+              <li class="list-group-item w-100" *ngIf="data.production_countries && data.production_countries.length"><strong>Genres:</strong>
+                <ul>
+                  <li *ngFor="let country of data.production_countries">{{ country.name }}</li>
+                </ul>
+              </li>
+              <li class="list-group-item w-100" *ngIf="data.production_companies && data.production_companies.length"><strong>Production Companies:</strong>
+                <ul>
+                  <li *ngFor="let company of data.production_companies">{{ company.name }}</li>
+                </ul>
+              </li>
+              <li class="list-group-item w-100" *ngIf="data.production_countries && data.production_countries.length"><strong>Production Countries:</strong>
+                <ul>
+                  <li *ngFor="let country of data.production_countries">{{ country.name }}</li>
+                </ul>
+              </li>
+              <li class="list-group-item w-100" *ngIf="data.spoken_languages && data.spoken_languages.length"><strong>Spoken Languages:</strong>
+                <ul>
+                  <li *ngFor="let language of data.spoken_languages">{{ language.name }}</li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  
+
+  </div>
+    
+  
+
+  <div class="container">
+    <app-comment (ev)="rec($event)"></app-comment>
+  </div>
+  <div class="mb-4 ">
+    <h5>Comments : </h5>
+  </div>
+  
+  <ul *ngFor="let comment of commentList" style="list-style-type: none;">
+    
+    <li *ngIf="comment.filmId==id">
+      <div class="card mb-3" style="max-width: 400px;" >
+        <div class="row g-0">
+          <div class="col-md-4">
+            <img src="data:image/png;base64,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" class="img-fluid rounded-start w-50 h-50" alt="not yet">
+          </div>
+          <div class="col-md-8" >
+            <div class="card-body">
+              <h5 class="card-title">{{comment.user.name}}</h5>
+              <p class="card-text">{{comment.commentContent}}</p>
+              
+              <p class="card-text" >
+                <ng-container >
+                  <small class="text-body-secondary">Last updated {{ getTime(comment)}} minutes ago</small>
+                </ng-container>
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </li>
+
+  </ul>
