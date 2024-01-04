@@ -1,0 +1,17 @@
+version: '3'
+
+services:
+  filma-app:
+    container_name: my-app-container
+    build: .
+    image: my-app:v0
+    ports:
+      - 80:80
+    expose:
+      - 80
+    networks:
+      - internalnet
+
+networks:
+  internalnet:
+    driver: bridge
