@@ -1,0 +1,24 @@
+<div class="container">
+  <div class="row">
+    <app-search-bar style="display: flex; justify-content: center;" (ev)="getIt($event)" class="m-2"></app-search-bar>
+    <div *ngFor="let item of data.results"  class=" col-3" >
+      <div *ngIf="item ">
+        <ng-container *ngIf="item.poster_path ">
+          <app-film [film]="item"></app-film>  
+        </ng-container>
+      </div>
+      <div *ngIf="!data.results">
+          no results
+      </div>
+    </div></div>
+    <div class="row" style="justify-content: center;">
+      <app-pagin [totalPages]="data.total_pages" (ev)="receive($event)" ></app-pagin>
+    </div>
+    
+  
+  
+  
+</div>
+
+
+
